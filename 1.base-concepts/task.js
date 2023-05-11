@@ -6,7 +6,7 @@ function solveEquation(a, b, c) {
   const d = Math.pow(b, 2) - 4 * a * c;
 
   if (d < 0) {
-    return "D = 0 => Корней нет.";
+    return arr;
   }
   if (d > 0) {
     arr.push((-b + Math.sqrt(d)) / (2 * a));
