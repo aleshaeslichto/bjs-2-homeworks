@@ -16,25 +16,10 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-
-  // Проверка
-  if (isNaN(percent)) {
-    return `Параметр percent содержит неправильное значение ${percent}`;
-  }
-  if (isNaN(contribution)) {
-      return `Параметр contribution содержит неправильное значение ${contribution}`;
-  }
-  if (isNaN(amount)) {
-      return `Параметр amount содержит неправильное значение ${amount}`;
-  }
-  if (isNaN(countMonths)) {
-      return `Параметр CountMonths содержит неправильное значение ${countMonths}`;
-  }
-
   // Вычисления
   const refundAmount = amount - contribution; // тело кредита
-  let P = (percent / 100) / 12; // Новый формат процентов
-  const conditions = refundAmount * (P + (P / (((1 + P)**countMonths) - 1))); // Плата
+  let P = percent / 100 / 12; // Новый формат процентов
+  const conditions = refundAmount * (P + P / ((1 + P) ** countMonths - 1)); // Плата
   let totalAmount = conditions * countMonths; // Финальная сумма
   return parseFloat(totalAmount.toFixed(2)); // Парсим число с "плавающей" запятой
-  }
+}
