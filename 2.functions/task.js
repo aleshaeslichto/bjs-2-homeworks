@@ -44,7 +44,7 @@ function differenceMaxMinWorker(...arr) {
 
   let difference = Math.max(...arr) - Math.min(...arr);
 
-  return difference;
+  return Math.abs(difference);
 }
 
 function differenceEvenOddWorker(...arr) {
