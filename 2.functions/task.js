@@ -4,10 +4,7 @@ function getArrayParams(...arr) {
     return 0;
   }
 
-  let min = Infinity;
-  let max = -Infinity;
-  let sum = 0;
-  let avg;
+  let min = Infinity, max = -Infinity, sum = 0, avg;
 
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
