@@ -32,7 +32,7 @@ function summElementsWorker(...arr) {
 
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    sum = arr.reduce;
+    sum += arr[i];
   }
   return sum;
 }
