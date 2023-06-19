@@ -1,19 +1,14 @@
-// 1
 function Student(name, gender, age) {
-  this.name = name;
-  this.gender = gender;
-  this.age = age;
+    this.name = name;
+    this.gender = gender;
+    this.age = age;
+    this.marks = [];
 }
 
-new Student("Максим", "мужской", 21)
-new Student("Инна", "женский", 22)
-
-// 2
-Student.prototype.setSubject = function (subjectName) {
-  this.subject = subjectName;
+Student.prototype.setSubject = function(subjectName) {
+    this.subject = subjectName;
 }
 
-// 3
 Student.prototype.addMarks = function(...marks) {
     if (this.marks === undefined) {
         this.marks = [mark];
@@ -22,23 +17,17 @@ Student.prototype.addMarks = function(...marks) {
     }
 }
 
-// 4
-Student.prototype.addMarks = function (...marks) {
-  return this.marks ? this.marks.push(...marks)
+Student.prototype.addMarks = function(...marks) {
+    return this.marks ? this.marks.push(...marks) : "student is excluded"
 }
 
-// 5 ср. ар.
 Student.prototype.getAverage = function() {
-    if (this.marks === undefined) {
-        return null
-    } else {
-        return (this.marks.reduce((previous, next) => previous + next)) / this.marks.length
-    }
+    return this.marks && this.marks.length ?
+        this.marks.reduce((previous, next) => previous + next, 0) / this.marks.length : 0;
 }
 
-// 6
-Student.prototype.exclude = function (reason) {
-  delete this.subject;
-  delete this.marks
-  this.excluded = reason;
+Student.prototype.exclude = function(reason) {
+    delete this.subject;
+    delete this.marks;
+    this.excluded = reason;
 }
