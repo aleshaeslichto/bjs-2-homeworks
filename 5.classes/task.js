@@ -80,9 +80,9 @@ class Library {
     }
 
     giveBookByName(bookName) {
-        let result = this.books.find(book => book.name === bookName);
+        let result = this.findBookBy('name', bookName);
         if (result) {
-            this. books = this.books.filter(book => book.name !== bookName);
+            this.books = this.books.filter(book => book.name !== bookName);
             return result;
         } else {
             return null;
